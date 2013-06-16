@@ -1,16 +1,18 @@
 Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
-Version:	0.1.2
+Version:	0.2.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
-# Source0-md5:	1c0bd8f6c85c43d8bf7894266511ce39
+# Source0-md5:	538b3eb2bef4f82eecd8a42a0581ea6c
 URL:		http://libvirt.org/
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gobject-introspection-devel >= 0.10.8
 BuildRequires:	gtk-doc >= 1.10
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libcap-ng-devel >= 0.4.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libvirt-devel >= 1.0.2
@@ -68,7 +70,7 @@ Summary:	Bash completion rules for libvirt-sandbox
 Summary(pl.UTF-8):	Bashowe uzupełnianie poleceń dla pakietu libvirt-sandbox
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
-Requires:	bash-completion
+Requires:	bash-completion >= 2.0
 
 %description -n bash-completion-libvirt-sandbox
 Bash completion rules for virt-sandbox-service command.
@@ -99,16 +101,18 @@ rm -rf $RPM_BUILD_ROOT
 # just placeholder, useless in RPM
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/libvirt-sandbox/scratch/README
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/virt-sandbox
 %attr(755,root,root) %{_bindir}/virt-sandbox-service
 %attr(755,root,root) %{_libdir}/libvirt-sandbox-1.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.1
+%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.2
 %{_libdir}/girepository-1.0/LibvirtSandbox-1.0.typelib
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-common
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-lxc
@@ -136,4 +140,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n bash-completion-libvirt-sandbox
 %defattr(644,root,root,755)
-/etc/bash_completion.d/virt-sandbox-service-bash-completion.sh
+%{_datadir}/bash-completion/completions/virt-sandbox-service
