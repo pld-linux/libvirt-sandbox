@@ -1,12 +1,12 @@
 Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
-Version:	0.2.0
+Version:	0.2.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
-# Source0-md5:	538b3eb2bef4f82eecd8a42a0581ea6c
+# Source0-md5:	f43c8aca1f138fc6340c198be765c600
 URL:		http://libvirt.org/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.32.0
@@ -16,13 +16,13 @@ BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libcap-ng-devel >= 0.4.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libvirt-devel >= 1.0.2
-BuildRequires:	libvirt-glib-devel >= 0.0.9
+BuildRequires:	libvirt-glib-devel >= 0.1.7
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 Requires:	glib2 >= 1:2.32.0
 Requires:	libcap-ng >= 0.4.0
 Requires:	libvirt >= 1.0.2
-Requires:	libvirt-glib >= 0.0.9
+Requires:	libvirt-glib >= 0.1.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,7 +45,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.32.0
 Requires:	libvirt-devel >= 1.0.2
-Requires:	libvirt-glib-devel >= 0.0.9
+Requires:	libvirt-glib-devel >= 0.1.7
 
 %description devel
 Header files for libvirt-sandbox library.
@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/virt-sandbox
 %attr(755,root,root) %{_bindir}/virt-sandbox-service
 %attr(755,root,root) %{_libdir}/libvirt-sandbox-1.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.2
+%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.3
 %{_libdir}/girepository-1.0/LibvirtSandbox-1.0.typelib
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-common
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-lxc
