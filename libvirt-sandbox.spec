@@ -1,12 +1,12 @@
 Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
-Version:	0.2.1
+Version:	0.5.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
-# Source0-md5:	f43c8aca1f138fc6340c198be765c600
+# Source0-md5:	7ad2d1353bb08a1c2496fc9badcc8049
 URL:		http://libvirt.org/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.32.0
@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/virt-sandbox
 %attr(755,root,root) %{_bindir}/virt-sandbox-service
 %attr(755,root,root) %{_libdir}/libvirt-sandbox-1.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.3
+%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.4
 %{_libdir}/girepository-1.0/LibvirtSandbox-1.0.typelib
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-common
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-lxc
