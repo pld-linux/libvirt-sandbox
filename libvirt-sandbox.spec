@@ -2,7 +2,7 @@ Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
 Version:	0.5.0
-Release:	2
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
@@ -92,10 +92,9 @@ Bashowe uzupełnianie parametrów dla polecenia virt-sandbox-service.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT/etc/cron.daily/virt-sandbox-service{.logrotate,}
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libvirt-sandbox-1.0.la
@@ -122,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/libvirt-sandbox
 %dir %{_sysconfdir}/libvirt-sandbox/scratch
 %dir %{_sysconfdir}/libvirt-sandbox/services
-%config(noreplace) %verify(not md5 mtime size) /etc/cron.daily/virt-sandbox-service
+%config(noreplace) %verify(not md5 mtime size) /etc/cron.daily/virt-sandbox-service.logrotate
 %{_mandir}/man1/virt-sandbox.1*
 %{_mandir}/man1/virt-sandbox-service.1*
 %{_mandir}/man1/virt-sandbox-service-*.1*
