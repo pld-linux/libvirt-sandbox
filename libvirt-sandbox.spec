@@ -1,12 +1,12 @@
 Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
-Version:	0.5.0
-Release:	3
+Version:	0.5.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
-# Source0-md5:	7ad2d1353bb08a1c2496fc9badcc8049
+# Source0-md5:	2b647f95b72be0d3d1cf3336c40914dc
 URL:		http://libvirt.org/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.32.0
