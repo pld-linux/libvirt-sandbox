@@ -71,6 +71,9 @@ Summary(pl.UTF-8):	Bashowe uzupełnianie poleceń dla pakietu libvirt-sandbox
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
 Requires:	bash-completion >= 2.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n bash-completion-libvirt-sandbox
 Bash completion rules for virt-sandbox-service command.
