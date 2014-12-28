@@ -8,7 +8,7 @@ Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
 # Source0-md5:	2b647f95b72be0d3d1cf3336c40914dc
 URL:		http://libvirt.org/
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gobject-introspection-devel >= 0.10.8
 BuildRequires:	gtk-doc >= 1.10
