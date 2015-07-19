@@ -1,28 +1,35 @@
 Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
-Version:	0.5.1
-Release:	3
+Version:	0.6.0
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
-# Source0-md5:	2b647f95b72be0d3d1cf3336c40914dc
+# Source0-md5:	546eb0caaa79d50a723adf58f32da87f
 URL:		http://libvirt.org/
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32.0
+# ldd
+BuildRequires:	glibc-misc
+BuildRequires:	glibc-static
 BuildRequires:	gobject-introspection-devel >= 0.10.8
 BuildRequires:	gtk-doc >= 1.10
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libcap-ng-devel >= 0.4.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libvirt-devel >= 1.0.2
-BuildRequires:	libvirt-glib-devel >= 0.1.7
+BuildRequires:	libvirt-glib-devel >= 0.2.1
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
+BuildRequires:	xz-devel >= 1:5.0.0
+BuildRequires:	xz-static >= 1:5.0.0
+BuildRequires:	zlib-devel >= 1.2.0
+BuildRequires:	zlib-static >= 1.2.0
 Requires:	glib2 >= 1:2.32.0
 Requires:	libcap-ng >= 0.4.0
 Requires:	libvirt >= 1.0.2
-Requires:	libvirt-glib >= 0.1.7
+Requires:	libvirt-glib >= 0.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,7 +52,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.32.0
 Requires:	libvirt-devel >= 1.0.2
-Requires:	libvirt-glib-devel >= 0.1.7
+Requires:	libvirt-glib-devel >= 0.2.1
 
 %description devel
 Header files for libvirt-sandbox library.
@@ -115,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/virt-sandbox
 %attr(755,root,root) %{_bindir}/virt-sandbox-service
 %attr(755,root,root) %{_libdir}/libvirt-sandbox-1.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.4
+%attr(755,root,root) %ghost %{_libdir}/libvirt-sandbox-1.0.so.5
 %{_libdir}/girepository-1.0/LibvirtSandbox-1.0.typelib
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-common
 %attr(755,root,root) %{_libexecdir}/libvirt-sandbox-init-lxc
