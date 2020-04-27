@@ -2,7 +2,7 @@ Summary:	API for building application sandboxes using libvirt
 Summary(pl.UTF-8):	API do tworzenia sandboksów aplikacyjnych przy użyciu libvirt
 Name:		libvirt-sandbox
 Version:	0.6.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://libvirt.org/libvirt/sandbox/%{name}-%{version}.tar.gz
@@ -93,6 +93,9 @@ Bashowe uzupełnianie parametrów dla polecenia virt-sandbox-service.
 
 # what is it? seems not required
 %{__sed} -i -e '/Requires: sandbox-2.0/d' libvirt-sandbox-1.0.pc.in
+
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/python(\s|$),#!%{__python}\1,' \
+      bin/virt-sandbox-service
 
 %build
 %configure \
